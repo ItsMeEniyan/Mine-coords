@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const world = require("../Model/worldSchema");
 
+//This router is the get all the world names
 router.get("/name", async (req, res) => {
   try {
     const worlds = await world.find({},"worldname");
@@ -13,6 +14,7 @@ router.get("/name", async (req, res) => {
   }
 });
 
+//This router is the get all the world names
 router.get("/", async (req, res) => {
   try {
     const worlds = await world.find();
@@ -56,7 +58,7 @@ router.put("/addcoord", async (req, res) => {
 });
 
 // this router is for editing world name
-router.put("/editworld", async (req, res) => {
+router.patch("/editworld", async (req, res) => {
   try {
     const thatworld = await world.findById(req.body.worldid);
 
