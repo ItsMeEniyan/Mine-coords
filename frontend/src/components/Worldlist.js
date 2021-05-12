@@ -17,6 +17,14 @@ export default function Worldlist() {
     //const w=worlds;
     //const a = w.splice(thatworldindex,1);
     //getworlds(a)
+    const copyworld = Object.assign([],worlds)
+    const thatworldindex = copyworld.findIndex((x)=>{
+      return x._id===thatid;
+    });
+    console.log(thatworldindex)
+    copyworld.splice(thatworldindex,1);
+    getworlds(copyworld)
+
   };
 
   const handlesubmit = () => {

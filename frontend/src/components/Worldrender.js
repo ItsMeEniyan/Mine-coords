@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./Worldrender.css";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 export default function Worldrender(props) {
   //console.log(props.worlds)
+
+  let history = useHistory();
 
   const [ModalIsOpen, setModalIsOpen] = useState(false);
 
@@ -37,11 +40,11 @@ export default function Worldrender(props) {
           {worlds.map((world, index) => {
             console.log.apply(world);
             return (
-              <div className="world" key={world._id}>
+              <div className="world" key={world._id} onClick={()=>history.push("/coord")}>
                 <h3 className="world_name">{world.worldname}</h3>
 
-                <button onClick={() => {setModalIsOpen(true); setcurrentworldid(world._id)}}>Edit</button>
-                <button onClick={(e) => deleteWorld(world._id, e)}>
+                <button onClick={(e) => {setModalIsOpen(true);e.stopPropagation(); setcurrentworldid(world._id)}}>Edit</button>
+                <button onClick={(e) => {deleteWorld(world._id, e) ;e.stopPropagation();}}>
                   Delete
                 </button>
               </div>
