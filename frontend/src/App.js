@@ -12,7 +12,7 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route path="/coord">
+          <Route path="/coords/:id">
             <Coordlist />
           </Route>
           <Route path="/">

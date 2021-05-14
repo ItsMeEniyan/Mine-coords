@@ -14,11 +14,13 @@ router.get("/name", async (req, res) => {
   }
 });
 
-//This router is the get all the world names
-router.get("/", async (req, res) => {
+//This router is the get all the coords of a particular world
+router.get("/coord", async (req, res) => {
   try {
-    const worlds = await world.find();
-    res.json(worlds);
+    const thatworld = await world.findById(req.query.worldid);
+    //{console.log(req.query.worldid)}
+    res.json(thatworld)
+    //{res.send(req.body)}
   } catch (err) {
     res.send(err);
   }
@@ -33,7 +35,7 @@ router.post("/", async (req, res) => {
   try {
     const temp = await newworld.save();
     //res.json(temp);
-    res.send("Successfully added " + temp.worldname);
+    res.send(temp._id);
   } catch (err) {
     res.send(err);
   }
@@ -51,7 +53,8 @@ router.put("/addcoord", async (req, res) => {
     //res.json(coordarray);
     thatworld.coords.push(coordarray);
     await thatworld.save();
-    res.send("Successfully pushed " + req.body.coordname);
+
+    res.send(thatworld.coords[(thatworld.coords.length)-1]);
   } catch (err) {
     res.send(err);
   }

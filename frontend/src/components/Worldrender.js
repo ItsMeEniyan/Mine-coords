@@ -24,15 +24,19 @@ export default function Worldrender(props) {
   /*{const editWorld = (_id,e) => {
          axios.patch(`${url}/editworld`, { data: { worldid: _id ,worldname: changename} });
         }}*/
-  const handlesubmit = () => {
+  const handlesubmit = (e) => {
     axios.patch(`${url}/editworld`, { worldid: currentworldid, worldname: changename });
     console.log(currentworldid);
+    props.editworldparent(currentworldid,changename);
+    setModalIsOpen(false);
+    e.preventDefault();
     //axios.patch(`${url}/editworld`, { data: { worldid: _id ,worldname: changename} });
   };
 
   const displayworlds = (props) => {
     const  worlds  = props.worlds;
     //const {deleteworldparent} = props;
+    console.log("hai")
 
     if (worlds.length > 0) {
       return (
@@ -40,10 +44,10 @@ export default function Worldrender(props) {
           {worlds.map((world, index) => {
             console.log.apply(world);
             return (
-              <div className="world" key={world._id} onClick={()=>history.push("/coord")}>
+              <div className="world" key={world._id} onClick={()=>history.push(`/coords/${world._id}`)}>
                 <h3 className="world_name">{world.worldname}</h3>
 
-                <button onClick={(e) => {setModalIsOpen(true);e.stopPropagation(); setcurrentworldid(world._id)}}>Edit</button>
+                <button onClick={(e) => {setModalIsOpen(true);e.stopPropagation();e.preventDefault(); setcurrentworldid(world._id)}}>Edit</button>
                 <button onClick={(e) => {deleteWorld(world._id, e) ;e.stopPropagation();}}>
                   Delete
                 </button>
@@ -54,7 +58,7 @@ export default function Worldrender(props) {
             isOpen={ModalIsOpen}
             onRequestClose={() => setModalIsOpen(false)}
           >
-            <form onSubmit={() => handlesubmit()}>
+            <form onSubmit={(e) => handlesubmit(e)}>
               <label>World Name:</label>
               <input
                 type="text"
