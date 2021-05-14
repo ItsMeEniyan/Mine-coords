@@ -56,6 +56,7 @@ export default function Worldlist() {
     });
     setModalIsOpen(false);
     e.preventDefault();
+    setworldname("")
 
     //axios.patch(`${url}/editworld`, { data: { worldid: _id ,worldname: changename} });
   };

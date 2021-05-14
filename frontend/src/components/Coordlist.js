@@ -1,6 +1,6 @@
 import React from "react";
 import "./Coordlist.css";
-import { useParams } from "react-router-dom";
+import { useParams ,useHistory} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Coordrender from "./Coordrender";
@@ -15,6 +15,8 @@ export default function Coordlist() {
   const [coordname, setcoordname] = useState("");
   const [x, setx] = useState("");
   const [y, sety] = useState("");
+
+  let history = useHistory();
 
   useEffect(() => {
     getallcoords();
@@ -35,19 +37,44 @@ export default function Coordlist() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
+  const deletecoordparent = (coordid) => {
+    const copycoord = Object.assign([],coords)
+    const thatcoordindex = copycoord.coords.findIndex((x)=>{
+      return x._id===coordid;
+    });
+    copycoord.coords.splice(thatcoordindex,1);
+    console.log(copycoord)
+    getcoords(copycoord)
+    console.log(coords)
+  };
+
+  const editcoordparent = (thatcoordid,newcoordname,newx,newy) => {
+    const copycoord = Object.assign([],coords)
+    const thatcoordindex = copycoord.coords.findIndex((x)=>{
+      return x._id===thatcoordid;
+    });
+    copycoord.coords[thatcoordindex].coordname=newcoordname;
+    copycoord.coords[thatcoordindex].coord.x=newx;
+    copycoord.coords[thatcoordindex].coord.y=newy;
+    getcoords(copycoord)
+  };
+
   const handlesubmit = (e) => {
     axios.put(`${url}/addcoord`, { worldid: id ,coordname: coordname, x:x, y:y}).then((response)=>
     {
-      //const newcoord= {"coordname": coordname , "_id": response.data, "coord":{"x":x,"y":y}};
-      const newcoord= response.data;
+      const newcoord= {"coordname": coordname , "_id": response.data, "coord":{"x":x,"y":y}};
+      //const newcoord= response.data;
 
       const copycoord = Object.assign([],coords)
-      copycoord.push(newcoord)
+      copycoord.coords.push(newcoord)
       getcoords(copycoord)
       console.log(coords);
     });
     setModalIsOpen(false);
     e.preventDefault();
+    setcoordname("");
+    setx("");
+    sety("");
 
     //axios.patch(`${url}/editworld`, { data: { worldid: _id ,worldname: changename} });
   };
@@ -55,9 +82,10 @@ export default function Coordlist() {
   return (
     <div>
       <button onClick={() => setModalIsOpen(true)}>Add New Coordinates</button>
+      <button onClick={() => history.goBack()}>Back</button>
       <Modal isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
         <form onSubmit={(e)=>handlesubmit(e)}>
-          <label>World Name:</label>
+          <label>Coord Name:</label>
           <input
             type="text"
             required
@@ -67,7 +95,7 @@ export default function Coordlist() {
           
           <label>X:</label>
           <input
-            type="text"
+            type="number"
             required
             value={x}
             onChange={(e) => setx(e.target.value)}
@@ -75,7 +103,7 @@ export default function Coordlist() {
           
           <label>Y:</label>
           <input
-            type="text"
+            type="number"
             required
             value={y}
             onChange={(e) => sety(e.target.value)}
@@ -84,7 +112,7 @@ export default function Coordlist() {
         </form>
       </Modal>
       {/*deletecoordparent={deletecoordparent}*/}
-      <Coordrender coords={coords} />
+      <Coordrender coords={coords} id={id} deletecoordparent={deletecoordparent} editcoordparent={editcoordparent}/>
     </div>
   );
 }

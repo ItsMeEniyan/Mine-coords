@@ -30,6 +30,7 @@ export default function Worldrender(props) {
     props.editworldparent(currentworldid,changename);
     setModalIsOpen(false);
     e.preventDefault();
+    setchangename("");
     //axios.patch(`${url}/editworld`, { data: { worldid: _id ,worldname: changename} });
   };
 
