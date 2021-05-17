@@ -46,12 +46,15 @@ export default function Worldrender(props) {
             console.log.apply(world);
             return (
               <div className="world" key={world._id} onClick={()=>history.push(`/coords/${world._id}`)}>
+              <div id="world_container">
                 <h3 className="world_name">{world.worldname}</h3>
-
+                <div className="button-set">
                 <button onClick={(e) => {setModalIsOpen(true);e.stopPropagation();e.preventDefault(); setcurrentworldid(world._id)}}>Edit</button>
                 <button onClick={(e) => {deleteWorld(world._id, e) ;e.stopPropagation();}}>
                   Delete
                 </button>
+                </div>
+                </div>
               </div>
             );
           })}
@@ -77,5 +80,5 @@ export default function Worldrender(props) {
     }
   };
 
-  return <div>{displayworlds(props)}</div>;
+  return <div >{displayworlds(props)}</div>;
 }

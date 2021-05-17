@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Worldrender from "./Worldrender";
+
+import "./Worldlist.css";
 import Modal from "react-modal";
 
 export default function Worldlist() {
@@ -77,7 +79,12 @@ export default function Worldlist() {
 
   return (
     <div>
-      <button onClick={(e) => {setModalIsOpen(true)}}>Add New World</button>
+      <Worldrender worlds={worlds} deleteworldparent={deleteworldparent} editworldparent={editworldparent}/>
+      <div className="button-center">
+      <div className="button-wrapper" onClick={(e) => {setModalIsOpen(true)}}>
+      <div className="add-button" >Add New World</div>
+      </div>
+      </div>
       <Modal isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
         <form onSubmit={handlesubmit}>
           <label>World Name:</label>
@@ -90,7 +97,6 @@ export default function Worldlist() {
           <button>Add new World Name</button>
         </form>
       </Modal>
-      <Worldrender worlds={worlds} deleteworldparent={deleteworldparent} editworldparent={editworldparent}/>
     </div>
   );
 }

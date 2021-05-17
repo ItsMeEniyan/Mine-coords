@@ -1,4 +1,11 @@
 body{
     margin-left: 20vw;
     margin-right: 20vw;
+    
+    /*border: black 2px solid;
+    background: linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);*/
+    background-image: url("./static/bgframe\ v1.svg"),linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);
+    
+  background-attachment: fixed;
+    height: 100vh;
 }

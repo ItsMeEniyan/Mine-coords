@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    margin-top: 42px;
+    margin-bottom: 47px;
+    width: 100%;
+    justify-content: space-between;
+}
+.navbar-sign-out{
+    justify-items: right;
+    align-items: right;
+}
