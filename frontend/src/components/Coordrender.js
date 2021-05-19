@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./Worldrender.css";
+import "./Coordrender.css";
+import "./modal-for-coords.css";
 import axios from "axios";
 //import {useHistory} from "react-router-dom";
 
@@ -19,7 +20,9 @@ export default function Coordender(props) {
   const url = "http://localhost:9000/world";
 
   const deletecoord = (_id, e) => {
-    axios.delete(`${url}/deletecoord`, { data: { worldid: props.id ,coordid : _id} });
+    axios.delete(`${url}/deletecoord`, {
+      data: { worldid: props.id, coordid: _id },
+    });
     props.deletecoordparent(_id);
   };
   /*const editWorld = (_id, e) => {
@@ -32,11 +35,11 @@ export default function Coordender(props) {
       worldid: props.id,
       coordname: coordname,
       coordid: currentcoordid,
-      x:x,
-      y:y
+      x: x,
+      y: y,
     });
-    console.log(props.id,coordname,currentcoordid,x,y);
-    props.editcoordparent(currentcoordid,coordname,x,y);
+    console.log(props.id, coordname, currentcoordid, x, y);
+    props.editcoordparent(currentcoordid, coordname, x, y);
     e.preventDefault();
     setModalIsOpen(false);
     setcoordname("");
@@ -48,27 +51,30 @@ export default function Coordender(props) {
 
   const displaycoords = () => {
     const coords = props.coords;
-   // const { deletecoordparent() } = props;
+    // const { deletecoordparent() } = props;
     //console.log(coords);
 
     if (coords.coords && coords.coords.length > 0) {
       return (
         <>
+        <div className="coord-container">
           {coords.coords.map((coord, index) => {
             console.log.apply(coord);
             return (
               <div
-                className="world"
+                className="coord"
                 key={
                   coord._id
                 } /*{onClick={()=>history.push(`/coords/${world._id}`)}}*/
               >
-                <h3 className="world_name">{coord.coordname}</h3>
+                <h3 className="coord_name">{coord.coordname}</h3>
                 <div className="coords">
-                  <h3 className="world_name">X: {coord.coord.x}</h3>
-                  <h3 className="world_name">Y: {coord.coord.y}</h3>
+                  <h3 className="coords-x">X: {coord.coord.x}</h3>
+                  <h3 className="coords-y">Y: {coord.coord.y}</h3>
                 </div>
-                <button
+                <div className="coord-button-set">
+                <div
+                className="coord-edit-button"
                   onClick={(e) => {
                     setModalIsOpen(true);
                     e.stopPropagation();
@@ -76,15 +82,16 @@ export default function Coordender(props) {
                   }}
                 >
                   Edit
-                </button>
-                <button
+                </div>
+                <div
+                className="coord-delete-button"
                   onClick={(e) => {
                     deletecoord(coord._id, e);
                     e.stopPropagation();
                   }}
                 >
-                  Delete
-                </button>
+                </div>
+                </div>
               </div>
             );
           })}
@@ -96,6 +103,7 @@ export default function Coordender(props) {
               <label>Coord Name:</label>
               <input
                 type="text"
+                maxlength="25"
                 required
                 value={coordname}
                 onChange={(e) => setcoordname(e.target.value)}
@@ -119,6 +127,7 @@ export default function Coordender(props) {
               <button>Edit coords</button>
             </form>
           </Modal>
+        </div>
         </>
       );
     } else {

@@ -1,0 +1,52 @@
+.coordnav {
+  display: flex;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #000000;
+}
+.coordnav .back-button {
+  background-image: url("../static/back\ button.svg");
+  width: 29px;
+  height: 29px;
+
+  margin-right: 15px;
+}
+.coordnav .back-button:hover {
+  cursor: pointer;
+}
+.coord-button-center {
+  width: 60vw;
+  /*border: black 2px solid;*/
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  bottom: 30px;
+}
+.coord-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-image: url("../static/add\ coords\ button.svg");
+  height: 73px;
+  width: 199.32px;
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+}
+.coord-add-button {
+  padding-top: 10px;
+}

@@ -1,24 +1,19 @@
-.button-center{
-    width: 60vw;
-    /*border: black 2px solid;*/
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-bottom: 30px;
-}
-.button-wrapper{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-image: url("../static/add\ world\ button.svg");
-    width: 162.29px;
-height: 72px;
+.button-center {
+  width: 60vw;
+  /*border: black 2px solid;*/
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    
+  bottom: 30px;
 }
-.add-button{
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-image: url("../static/add\ world\ button.svg");
+  width: 162.29px;
+  height: 72px;
 }

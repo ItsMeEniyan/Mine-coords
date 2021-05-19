@@ -1,11 +1,21 @@
-body{
-    margin-left: 20vw;
-    margin-right: 20vw;
-    
-    /*border: black 2px solid;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Raleway:wght@700&display=swap");
+body {
+  margin-left: 20vw;
+  margin-right: 20vw;
+
+  /*border: black 2px solid;
     background: linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);*/
-    background-image: url("./static/bgframe\ v1.svg"),linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);
-    
+  background-image: url("./static/bgframe\ v2.svg"),
+    linear-gradient(180deg, #f7e8cb 0%, #ba16f3 145.94%);
+
   background-attachment: fixed;
-    height: 100vh;
+  height: 100vh;
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+}
+@media only screen and (max-width: 800px) {
+  body {
+    margin-left: 7vw;
+  margin-right: 7vw;
+  }
 }

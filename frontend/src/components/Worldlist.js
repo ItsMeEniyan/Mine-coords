@@ -3,6 +3,7 @@ import axios from "axios";
 import Worldrender from "./Worldrender";
 
 import "./Worldlist.css";
+import "./modal.css";
 import Modal from "react-modal";
 
 export default function Worldlist() {
@@ -85,17 +86,23 @@ export default function Worldlist() {
       <div className="add-button" >Add New World</div>
       </div>
       </div>
-      <Modal isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+      <Modal className="world-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={{
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    }}}>
+        <div className="modal-padding">
         <form onSubmit={handlesubmit}>
-          <label>World Name:</label>
+          <label>Enter the world’s name</label>
           <input
             type="text"
+            maxlength="32"
             required
             value={worldname}
             onChange={(e) => setworldname(e.target.value)}
           />
-          <button>Add new World Name</button>
+          <button>Create</button>
         </form>
+        </div>
       </Modal>
     </div>
   );

@@ -1,0 +1,76 @@
+.coord-container {
+  padding-top: 3vh;
+  display: grid;
+  grid-template-columns: 21vw 21vw;
+  justify-content: center;
+  gap: 3vw;
+}
+@media only screen and (max-width: 800px) {
+  .coord-container {
+    grid-template-columns: 78vw;
+  }
+}
+.coord {
+  margin-top: 14px;
+  padding: 25px;
+  background: linear-gradient(180deg, #ffc303 0%, #ffa903 100%);
+  border: 4px solid #000000;
+  font-size: 24px;
+  font-family: "Raleway", sans-serif;
+}
+
+.coords {
+  display: flex;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #000000;
+}
+
+.coord_name {
+  max-width: 100%;
+  word-break: break-all;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #000000;
+}
+.coords-x{
+  margin-right: 5px;
+}
+.coord:hover {
+}
+.coord-entire-section {
+  margin-top: 126px;
+}
+.coord-button-set {
+  display: flex;
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  color: #000000;
+}
+.coord-edit-button {
+  width: 65px;
+  height: 40px;
+  background-image: url("../static/Edit\ button.svg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .7vw;
+}
+.coord-delete-button {
+  background-image: url("../static/Delete\ button.svg");
+  width: 43px;
+  height: 39px;
+}
