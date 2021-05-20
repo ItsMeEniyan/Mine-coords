@@ -80,7 +80,9 @@ export default function Worldlist() {
 
   return (
     <div>
+    <div  className="worlds">
       <Worldrender worlds={worlds} deleteworldparent={deleteworldparent} editworldparent={editworldparent}/>
+      </div>
       <div className="button-center">
       <div className="button-wrapper" onClick={(e) => {setModalIsOpen(true)}}>
       <div className="add-button" >Add New World</div>

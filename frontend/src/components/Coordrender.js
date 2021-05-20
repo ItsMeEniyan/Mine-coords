@@ -57,78 +57,84 @@ export default function Coordender(props) {
     if (coords.coords && coords.coords.length > 0) {
       return (
         <>
-        <div className="coord-container">
-          {coords.coords.map((coord, index) => {
-            console.log.apply(coord);
-            return (
-              <div
-                className="coord"
-                key={
-                  coord._id
-                } /*{onClick={()=>history.push(`/coords/${world._id}`)}}*/
-              >
-                <h3 className="coord_name">{coord.coordname}</h3>
-                <div className="coords">
-                  <h3 className="coords-x">X: {coord.coord.x}</h3>
-                  <h3 className="coords-y">Y: {coord.coord.y}</h3>
-                </div>
-                <div className="coord-button-set">
+          <div className="coord-container">
+            {coords.coords.map((coord, index) => {
+              console.log.apply(coord);
+              return (
                 <div
-                className="coord-edit-button"
-                  onClick={(e) => {
-                    setModalIsOpen(true);
-                    e.stopPropagation();
-                    setcurrentcoordid(coord._id);
-                  }}
+                  className="coord"
+                  key={
+                    coord._id
+                  } /*{onClick={()=>history.push(`/coords/${world._id}`)}}*/
                 >
-                  Edit
+                  <h3 className="coord_name">{coord.coordname}</h3>
+                  <div className="coords">
+                    <h3 className="coords-x">X: {coord.coord.x}</h3>
+                    <h3 className="coords-y">Y: {coord.coord.y}</h3>
+                  </div>
+                  <div className="coord-button-set">
+                    <div
+                      className="coord-edit-button"
+                      onClick={(e) => {
+                        setModalIsOpen(true);
+                        e.stopPropagation();
+                        setcurrentcoordid(coord._id);
+                      }}
+                    >
+                      Edit
+                    </div>
+                    <div
+                      className="coord-delete-button"
+                      onClick={(e) => {
+                        deletecoord(coord._id, e);
+                        e.stopPropagation();
+                      }}
+                    ></div>
+                  </div>
                 </div>
-                <div
-                className="coord-delete-button"
-                  onClick={(e) => {
-                    deletecoord(coord._id, e);
-                    e.stopPropagation();
-                  }}
-                >
-                </div>
-                </div>
+              );
+            })}
+            <Modal
+              className="coord-modal"
+              isOpen={ModalIsOpen}
+              onRequestClose={() => setModalIsOpen(false)}
+              style={{
+                overlay: {
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                },
+              }}
+            >
+            <div className="coord-padding">
+              <form onSubmit={(e) => handlesubmit(e)}>
+                <label>Enter Coordinates Name</label>
+                <input
+                  type="text"
+                  maxlength="25"
+                  required
+                  value={coordname}
+                  onChange={(e) => setcoordname(e.target.value)}
+                />
+
+                <label>X-Coordinates</label>
+                <input
+                  type="number"
+                  required
+                  value={x}
+                  onChange={(e) => setx(e.target.value)}
+                />
+
+                <label>Y-Coordinates</label>
+                <input
+                  type="number"
+                  required
+                  value={y}
+                  onChange={(e) => sety(e.target.value)}
+                />
+                <button>Edit coords</button>
+              </form>
               </div>
-            );
-          })}
-          <Modal
-            className="coord-modal"
-            isOpen={ModalIsOpen}
-            onRequestClose={() => setModalIsOpen(false)}
-          >
-            <form onSubmit={(e) => handlesubmit(e)}>
-              <label>Coord Name:</label>
-              <input
-                type="text"
-                maxlength="25"
-                required
-                value={coordname}
-                onChange={(e) => setcoordname(e.target.value)}
-              />
-
-              <label>X:</label>
-              <input
-                type="number"
-                required
-                value={x}
-                onChange={(e) => setx(e.target.value)}
-              />
-
-              <label>Y:</label>
-              <input
-                type="number"
-                required
-                value={y}
-                onChange={(e) => sety(e.target.value)}
-              />
-              <button>Edit coords</button>
-            </form>
-          </Modal>
-        </div>
+            </Modal>
+          </div>
         </>
       );
     } else {

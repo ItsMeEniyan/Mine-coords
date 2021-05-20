@@ -89,9 +89,13 @@ export default function Coordlist() {
       <div className="back-button" onClick={() => history.goBack()}></div>
       <div> {coords.worldname}</div>
     </div>
-      <Modal className="coord-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+      <Modal className="coord-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={{
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    }}}>
+        <div className="coord-padding">
         <form onSubmit={(e) => handlesubmit(e)}>
-          <label>Coord Name:</label>
+          <label>Enter Coordinates Name</label>
           <input
             type="text"
             maxlength="25"
@@ -100,7 +104,7 @@ export default function Coordlist() {
             onChange={(e) => setcoordname(e.target.value)}
           />
 
-          <label>X:</label>
+          <label>X-coordinates</label>
           <input
             type="number"
             required
@@ -108,23 +112,27 @@ export default function Coordlist() {
             onChange={(e) => setx(e.target.value)}
           />
 
-          <label>Y:</label>
+          <label>Y-coordinates</label>
           <input
             type="number"
             required
             value={y}
             onChange={(e) => sety(e.target.value)}
           />
-          <button>Add new Coordinates</button>
+          <button>Create</button>
         </form>
+        </div>
       </Modal>
       {/*deletecoordparent={deletecoordparent}*/}
+      <div  className="full-coords">
       <Coordrender
         coords={coords}
         id={id}
         deletecoordparent={deletecoordparent}
         editcoordparent={editcoordparent}
-      /><div className="coord-button-center">
+      />
+      </div>
+      <div className="coord-button-center">
       <div className="coord-button-wrapper" onClick={(e) => {setModalIsOpen(true)}}>
       <div className="coord-add-button" >Add New Coordinates</div>
       </div>

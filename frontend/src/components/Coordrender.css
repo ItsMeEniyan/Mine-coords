@@ -5,12 +5,13 @@
   justify-content: center;
   gap: 3vw;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
   .coord-container {
     grid-template-columns: 78vw;
   }
 }
 .coord {
+  position:relative;
   margin-top: 14px;
   padding: 25px;
   background: linear-gradient(180deg, #ffc303 0%, #ffa903 100%);
@@ -20,7 +21,7 @@
 }
 
 .coords {
-  display: flex;
+  margin-bottom: 19px;
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;
@@ -31,18 +32,28 @@
 }
 
 .coord_name {
+  margin: 0px;
+  margin-bottom: 6px;
   max-width: 100%;
   word-break: break-all;
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
 
   color: #000000;
 }
+.coords{
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
 .coords-x{
+  margin: 0px;
   margin-right: 7px;
+  margin-bottom: 4px;
+}
+.coords-y{
+  margin: 0px;
 }
 .coord:hover {
 }
@@ -50,6 +61,7 @@
   margin-top: 126px;
 }
 .coord-button-set {
+  position: absolute;
   display: flex;
   font-family: Merriweather;
   font-style: normal;

@@ -17,7 +17,7 @@ font-family: 'Raleway', sans-serif;
 .world_name{
     margin: 0px;
     max-width: 100%;
-    word-break: break-all;
+    word-break:break-all;
     
 }
 .world:hover {

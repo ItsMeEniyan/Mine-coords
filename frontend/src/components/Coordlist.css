@@ -1,3 +1,6 @@
+.full-coords{
+  padding-bottom: 150px;
+}
 .coordnav {
   display: flex;
   font-family: Raleway;
@@ -8,6 +11,7 @@
 
   color: #000000;
 }
+
 .coordnav .back-button {
   background-image: url("../static/back\ button.svg");
   width: 29px;
@@ -27,6 +31,11 @@
   justify-content: center;
 
   bottom: 30px;
+}
+@media only screen and (max-width: 800px) {
+  .coord-button-center{
+    width: 86vw;
+  }
 }
 .coord-button-wrapper {
   display: flex;
