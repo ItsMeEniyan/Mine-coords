@@ -16,6 +16,25 @@ body {
 @media only screen and (max-width: 800px) {
   body {
     margin-left: 7vw;
-  margin-right: 7vw;
+    margin-right: 7vw;
   }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #F7E8CB;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d966ff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #BA16F3;
 }

@@ -96,6 +96,7 @@ export default function Coordender(props) {
             );
           })}
           <Modal
+            className="coord-modal"
             isOpen={ModalIsOpen}
             onRequestClose={() => setModalIsOpen(false)}
           >

@@ -8,7 +8,6 @@ font-size: 24px;
 font-family: 'Raleway', sans-serif;
     }
 #world_container{
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,6 +15,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 .world_name{
+    margin: 0px;
     max-width: 100%;
     word-break: break-all;
     

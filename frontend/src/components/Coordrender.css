@@ -5,7 +5,7 @@
   justify-content: center;
   gap: 3vw;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
   .coord-container {
     grid-template-columns: 78vw;
   }
@@ -42,7 +42,7 @@
   color: #000000;
 }
 .coords-x{
-  margin-right: 5px;
+  margin-right: 7px;
 }
 .coord:hover {
 }
@@ -68,9 +68,11 @@
   align-items: center;
   justify-content: center;
   margin-right: .7vw;
+  cursor: pointer;
 }
 .coord-delete-button {
   background-image: url("../static/Delete\ button.svg");
   width: 43px;
   height: 39px;
+  cursor: pointer;
 }

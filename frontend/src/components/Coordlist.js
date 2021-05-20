@@ -89,7 +89,7 @@ export default function Coordlist() {
       <div className="back-button" onClick={() => history.goBack()}></div>
       <div> {coords.worldname}</div>
     </div>
-      <Modal className="world-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+      <Modal className="coord-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
         <form onSubmit={(e) => handlesubmit(e)}>
           <label>Coord Name:</label>
           <input
