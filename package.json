@@ -1,0 +1,20 @@
+{
+  "name": "minecoords",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix  ./frontend && npm run build --prefix ./frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsMeEniyan/Mine-coords.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsMeEniyan/Mine-coords/issues"
+  },
+  "homepage": "https://github.com/ItsMeEniyan/Mine-coords#readme"
+}
