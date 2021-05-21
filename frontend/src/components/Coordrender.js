@@ -109,7 +109,7 @@ export default function Coordender(props) {
                 <label>Enter Coordinates Name</label>
                 <input
                   type="text"
-                  maxlength="25"
+                  maxLength="25"
                   required
                   value={coordname}
                   onChange={(e) => setcoordname(e.target.value)}

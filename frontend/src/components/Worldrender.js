@@ -95,7 +95,7 @@ export default function Worldrender(props) {
               <label>Enter the new name</label>
               <input
                 type="text"
-                maxlength="32"
+                maxLength="32"
                 required
                 value={changename}
                 onChange={(e) => setchangename(e.target.value)}

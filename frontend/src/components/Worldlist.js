@@ -97,7 +97,7 @@ export default function Worldlist() {
           <label>Enter the world’s name</label>
           <input
             type="text"
-            maxlength="32"
+            maxLength="32"
             required
             value={worldname}
             onChange={(e) => setworldname(e.target.value)}
