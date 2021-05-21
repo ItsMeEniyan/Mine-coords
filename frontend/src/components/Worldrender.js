@@ -16,7 +16,7 @@ export default function Worldrender(props) {
   const [changename, setchangename] = useState("");
   const [currentworldid, setcurrentworldid] = useState("");
 
-  const url = "http://localhost:9000/world";
+  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
 
   const deleteWorld = (_id, e) => {
     axios.delete(`${url}/deleteworld`, { data: { worldid: _id } });

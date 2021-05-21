@@ -17,7 +17,7 @@ export default function Coordender(props) {
   const [y, sety] = useState("");
   const [currentcoordid, setcurrentcoordid] = useState("");
 
-  const url = "http://localhost:9000/world";
+  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
 
   const deletecoord = (_id, e) => {
     axios.delete(`${url}/deletecoord`, {

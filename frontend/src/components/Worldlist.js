@@ -7,7 +7,7 @@ import "./modal.css";
 import Modal from "react-modal";
 
 export default function Worldlist() {
-  const url = "http://localhost:9000/world";
+  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
 
   const [worlds, getworlds] = useState("");
   const [ModalIsOpen, setModalIsOpen] = useState(false);

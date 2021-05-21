@@ -8,7 +8,7 @@ import Coordrender from "./Coordrender";
 import Modal from "react-modal";
 
 export default function Coordlist() {
-  const url = "http://localhost:9000/world";
+  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
   const { id } = useParams();
 
   const [ModalIsOpen, setModalIsOpen] = useState(false);
