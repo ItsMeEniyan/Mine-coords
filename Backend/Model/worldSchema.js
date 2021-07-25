@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const world = new mongoose.Schema({
+  googleid:{
+    type: String,
+    required: true,
+  },
   worldname: {
     type: String,
     required: true,

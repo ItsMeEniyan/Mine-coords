@@ -40,7 +40,7 @@ const worldRouter = require("./Routes/world");
 app.use("/world", worldRouter);
 
 const userRouter = require("./Routes/user");
-app.use("/world", userRouter);
+app.use("/", userRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../frontend/build"));

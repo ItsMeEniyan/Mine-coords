@@ -1,19 +1,40 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
 const world = require("../Model/worldSchema");
 
-
-
-//This router is the get all the world names
-router.get("/name", async (req, res) => {
-  try {
-    const worlds = await world.find({},"worldname");
-    res.json(worlds);
-  } catch (err) {
-    res.send(err);
+function verifyToken(req,res,next){
+  const bearerHeader = req.headers['authorization'];
+  if (typeof bearerHeader!= "undefined"){
+    const bearer = bearerHeader.split(' ');
+    const bearertoken = bearer[1];
+    req.token = bearertoken;
+    next();
+  }else{
+    res.sendStatus(403);
   }
+}
+
+//This router is to get all the world names
+router.get("/name",verifyToken, async (req, res) => {
+  jwt.verify(req.token,process.env.JWT_SECRET,async (err,authdata)=>{
+    if(err){
+      res.sendStatus(403);
+    }
+    else {
+      
+      try {
+        const worlds = await world.find({},"worldname");
+        res.json(worlds);
+      } catch (err) {
+        res.send(err);
+      }
+    }
+  })
+  
 });
 
 //This router is the get all the coords of a particular world
@@ -29,11 +50,12 @@ router.get("/coord", async (req, res) => {
 });
 
 //This router is for creating new world
-router.post("/", async (req, res) => {
+router.post("/",passport.authenticate("google"), async (req, res) => {
   const newworld = new world({
     worldname: req.body.worldname,
   });
-
+  
+  console.log(req.user);
   try {
     const temp = await newworld.save();
     //res.json(temp);
