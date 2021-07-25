@@ -46,7 +46,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect secrets.
     const user = req.user;
-    const jwtTok = jwt.sign({ oauthId: user.oauthId }, process.env.JWT_SECRET, {
+    const jwtTok = jwt.sign({ user }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
     res.redirect(`${process.env.CLIENT}/?jwtTok=${jwtTok}`);
