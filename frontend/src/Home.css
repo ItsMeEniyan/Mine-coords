@@ -1,0 +1,29 @@
+.home {
+  
+  /*border: black 2px solid;
+    background: linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);*/
+  margin: 0px;
+  height: 100vh;
+  font-family: "Raleway", serif;
+  font-weight:400;
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:rgb(251, 255, 247);
+}
+.home-tag{
+  width: 602px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+.home-footer{
+  font-size: 16px;
+}
+@media only screen and (max-width: 800px) {
+  .home {
+    
+  }
+}
+

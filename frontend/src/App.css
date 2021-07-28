@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Raleway:wght@700&display=swap");
-body {
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Raleway:wght@700;400&display=swap");
+.app-body {
   margin-left: 20vw;
   margin-right: 20vw;
 
@@ -14,7 +14,7 @@ body {
   font-weight: 900;
 }
 @media only screen and (max-width: 800px) {
-  body {
+  .app-body {
     margin-left: 7vw;
     margin-right: 7vw;
   }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Worldrender from "./Worldrender";
+import { useParams } from "react-router-dom";
 
 import "./Worldlist.css";
 import "./modal.css";
@@ -48,7 +49,11 @@ export default function Worldlist() {
   };
 
   const handlesubmit = (e) => {
-    axios.post(`${url}`, { worldname: worldname }).then((response)=>
+    axios.post(`${url}`, { worldname: worldname },{
+      headers: {
+        'Authorization': `bearer ${jwtTok}`
+      }
+    }).then((response)=>
     {
       const newworld= {"worldname": worldname , "_id": response.data};
       
@@ -68,15 +73,25 @@ export default function Worldlist() {
     getallworlds();
   }, []);
 
+  const jwtTok= localStorage.getItem("jwtTok");
+
   const getallworlds = () => {
     axios
-      .get(`${url}/name`)
+      .get(`${url}/name`,{
+        headers: {
+          'Authorization': `bearer ${jwtTok}`
+        }
+      })
       .then((response) => {
         const allworlds = response.data;
+        
         getworlds(allworlds);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
+  
+  // const {jwtTok}  = useParams();
+  // localStorage.setItem("jwtTok", jwtTok);
 
   return (
     <div>

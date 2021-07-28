@@ -34,7 +34,7 @@ passport.use(
       );
     }
   )
-);
+); 
 
 router.get(
   "/auth/google",

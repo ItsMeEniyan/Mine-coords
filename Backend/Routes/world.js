@@ -27,7 +27,7 @@ router.get("/name",verifyToken, async (req, res) => {
     else {
       
       try {
-        const worlds = await world.find({},"worldname");
+        const worlds = await world.find({},"worldname",{"googleid":authdata.user.googleid});
         res.json(worlds);
       } catch (err) {
         res.send(err);
@@ -50,19 +50,29 @@ router.get("/coord", async (req, res) => {
 });
 
 //This router is for creating new world
-router.post("/",passport.authenticate("google"), async (req, res) => {
-  const newworld = new world({
-    worldname: req.body.worldname,
-  });
+router.post("/",verifyToken, async (req, res) => {
+  jwt.verify(req.token,process.env.JWT_SECRET,async (err,authdata)=>{
+    if(err){
+      res.sendStatus(403);
+    }
+    else {
+      
+      const newworld = new world({
+        worldname: req.body.worldname,
+        googleid: authdata.user.googleid
+      });
+      
+      console.log(req.user);
+      try {
+        const temp = await newworld.save();
+        //res.json(temp);
+        res.send(temp._id);
+      } catch (err) {
+        res.send(err);
+      }
+    }
+  })
   
-  console.log(req.user);
-  try {
-    const temp = await newworld.save();
-    //res.json(temp);
-    res.send(temp._id);
-  } catch (err) {
-    res.send(err);
-  }
 });
 
 // This router is for adding new coordinates to the existing world
