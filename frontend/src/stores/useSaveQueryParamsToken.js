@@ -16,7 +16,7 @@ const useSaveQueryParamsToken = () => {
       
          const query = useQuery();
          const jwtTok =query.get("jwtTok")
-         if(jwtTok==null){
+         if(jwtTok==null && localStorage.getItem('jwtTok') == null){
           history.push("/");
          }
          if (jwtTok!=null){
