@@ -1,8 +1,12 @@
 import React from 'react'
 import Minelogo from '../static/Mine Coords logo.svg'
+import { useHistory } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+
+    let history = useHistory();
+    
     return (
         <>
         <div className="navbar">
@@ -10,7 +14,10 @@ function Navbar() {
             <img src={Minelogo} alt="Logo of Minecoords"></img>
         </div>
         <div className="navbar-sign-out">
-            <div >Sign out</div>
+            <div onClick={()=>{
+                localStorage.removeItem("jwtTok");
+                history.push("/");
+            }}>Sign out</div>
         </div>
         </div>
         </>

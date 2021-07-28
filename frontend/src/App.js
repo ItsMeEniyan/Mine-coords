@@ -2,7 +2,7 @@ import React from "react";
 import Worldlist from "./components/Worldlist";
 import Coordlist from "./components/Coordlist";
 import Modal from "react-modal";
-import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import { browserHistory } from "react-router";
 import "./App.css";
 import Navbar from "./components/Navbar";

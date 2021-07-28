@@ -24,7 +24,7 @@ router.get("/name",passport.authenticate("jwt",{session:false}), async (req, res
       
       try {
         const worlds = await world.find({"googleId":req.user.googleId});
-        console.log(req.user.googleId)
+        
         res.json(worlds);
       } catch (err) {
         res.send(err);

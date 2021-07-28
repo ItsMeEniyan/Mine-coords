@@ -9,3 +9,6 @@
     justify-items: right;
     align-items: right;
 }
+.navbar-sign-out:hover{
+    cursor: pointer;
+}

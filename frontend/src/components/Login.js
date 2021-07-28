@@ -7,7 +7,7 @@ export default function Login() {
   // UseSaveQueryParamsToken();
     return (
         <div>
-            <form action="http://localhost:9000/auth/google">
+            <form action={`${process.env.REACT_APP_SERVER_URL}/auth/google`}>
           <button type="submit" className="google-button">
           <span className="google-logo">
             <img src={Google} alt="Logo of Google"></img>

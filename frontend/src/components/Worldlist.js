@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Worldrender from "./Worldrender";
-import { useParams } from "react-router-dom";
 
 import "./Worldlist.css";
 import "./modal.css";
