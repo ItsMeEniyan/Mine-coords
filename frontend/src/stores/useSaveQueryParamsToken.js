@@ -14,9 +14,9 @@ const useSaveQueryParamsToken = () => {
       
          const query = useQuery();
          const jwtTok =query.get("jwtTok")
-      
+         if (jwtTok!=null){
          localStorage.setItem("jwtTok", jwtTok);
-        
+         }
 }
 
 export default useSaveQueryParamsToken;

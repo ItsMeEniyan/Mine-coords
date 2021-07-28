@@ -19,21 +19,17 @@ function verifyToken(req,res,next){
 }
 
 //This router is to get all the world names
-router.get("/name",verifyToken, async (req, res) => {
-  jwt.verify(req.token,process.env.JWT_SECRET,async (err,authdata)=>{
-    if(err){
-      res.sendStatus(403);
-    }
-    else {
+router.get("/name",passport.authenticate("jwt",{session:false}), async (req, res) => {
+  
       
       try {
-        const worlds = await world.find({},"worldname",{"googleid":authdata.user.googleid});
+        const worlds = await world.find({"googleId":req.user.googleId});
+        console.log(req.user.googleId)
         res.json(worlds);
       } catch (err) {
         res.send(err);
       }
-    }
-  })
+    
   
 });
 
@@ -50,16 +46,12 @@ router.get("/coord", async (req, res) => {
 });
 
 //This router is for creating new world
-router.post("/",verifyToken, async (req, res) => {
-  jwt.verify(req.token,process.env.JWT_SECRET,async (err,authdata)=>{
-    if(err){
-      res.sendStatus(403);
-    }
-    else {
+router.post("/",passport.authenticate("jwt",{session:false}), async (req, res) => {
+  
       
       const newworld = new world({
         worldname: req.body.worldname,
-        googleid: authdata.user.googleid
+        googleId: req.user.googleId
       });
       
       console.log(req.user);
@@ -70,8 +62,7 @@ router.post("/",verifyToken, async (req, res) => {
       } catch (err) {
         res.send(err);
       }
-    }
-  })
+    
   
 });
 

@@ -10,7 +10,7 @@ function Navbar() {
             <img src={Minelogo} alt="Logo of Minecoords"></img>
         </div>
         <div className="navbar-sign-out">
-            <div>Sign out</div>
+            <div >Sign out</div>
         </div>
         </div>
         </>

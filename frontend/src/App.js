@@ -22,10 +22,11 @@ export default function App() {
   // localStorage.setItem("jwtTok", jwtTok);
 
   
-  //UseSaveQueryParamsToken();
+  UseSaveQueryParamsToken();
 
   return (
     <div className="app-body" >
+    <div>
     <Navbar/>
     <Router /*history={browserHistory}*/>
       <div>
@@ -39,6 +40,7 @@ export default function App() {
         </Switch>
       </div>
     </Router>
+    </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <div className="home-tag">Minecraft coordinates Made Easy</div>
             <Login/>
-        <div className="home-footer"><span><img src={Github} alt="Logo of Github"></img></span> <span>An open source project</span></div>
+        <a className="home-footer" href="https://github.com/ItsMeEniyan/Mine-coords" target="/"><div><span><img src={Github} alt="Logo of Github"></img></span> <span>An open source project</span></div></a>
         </div>
     )
 }

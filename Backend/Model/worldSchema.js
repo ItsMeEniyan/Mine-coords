@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const world = new mongoose.Schema({
-  googleid:{
+  googleId:{
     type: String,
     required: true,
   },

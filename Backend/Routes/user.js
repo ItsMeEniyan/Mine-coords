@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
+const strategy = require("passport-jwt").Strategy;
+const ExtractJWT = require("passport-jwt").ExtractJwt;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const jwt = require("jsonwebtoken");
 
@@ -35,6 +37,22 @@ passport.use(
     }
   )
 ); 
+passport.use(new strategy({
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),secretOrKey:process.env.JWT_SECRET
+},
+function(jwt_payload, done) {
+  User.findOne({googleId: jwt_payload.user.googleId}, function(err, user) {
+      if (err) {
+          return done(err, false);
+      }
+      if (user) {
+          return done(null, user);
+      } else {
+          return done(null, false);
+          // or you could create a new account
+      }
+  });
+}));
 
 router.get(
   "/auth/google",
@@ -49,7 +67,7 @@ router.get(
     const jwtTok = jwt.sign({ user }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
-    res.redirect(`${process.env.CLIENT}/?jwtTok=${jwtTok}`);
+    res.redirect(`${process.env.CLIENT}/app/?jwtTok=${jwtTok}`);
   }
 );
 // router.post("/login", (req, res) => {
