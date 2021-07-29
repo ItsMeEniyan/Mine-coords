@@ -16,7 +16,7 @@ export default function Worldrender(props) {
   const [changename, setchangename] = useState("");
   const [currentworldid, setcurrentworldid] = useState("");
 
-  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
+  const url = `${process.env.REACT_APP_SERVER_URL}/world`;
 
   const deleteWorld = (_id, e) => {
     axios.delete(`${url}/deleteworld`, { data: { worldid: _id } });
@@ -81,7 +81,7 @@ export default function Worldrender(props) {
             );
           })}
           <Modal
-          className="world-modal"
+            className="world-modal"
             isOpen={ModalIsOpen}
             onRequestClose={() => setModalIsOpen(false)}
             style={{
@@ -90,18 +90,18 @@ export default function Worldrender(props) {
               },
             }}
           >
-          <div className="modal-padding">
-            <form onSubmit={(e) => handlesubmit(e)}>
-              <label>Enter the new name</label>
-              <input
-                type="text"
-                maxLength="32"
-                required
-                value={changename}
-                onChange={(e) => setchangename(e.target.value)}
-              />
-              <button>Change name</button>
-            </form>
+            <div className="modal-padding">
+              <form onSubmit={(e) => handlesubmit(e)}>
+                <label>Enter the new name</label>
+                <input
+                  type="text"
+                  maxLength="32"
+                  required
+                  value={changename}
+                  onChange={(e) => setchangename(e.target.value)}
+                />
+                <button>Change name</button>
+              </form>
             </div>
           </Modal>
         </>

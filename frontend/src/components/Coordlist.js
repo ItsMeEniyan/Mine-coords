@@ -8,7 +8,7 @@ import Coordrender from "./Coordrender";
 import Modal from "react-modal";
 
 export default function Coordlist() {
-  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
+  const url = `${process.env.REACT_APP_SERVER_URL}/world`;
   const { id } = useParams();
 
   const [ModalIsOpen, setModalIsOpen] = useState(false);
@@ -85,57 +85,68 @@ export default function Coordlist() {
 
   return (
     <div>
-    <div className="coordnav">
-      <div className="back-button" onClick={() => history.goBack()}></div>
-      <div> {coords.worldname}</div>
-    </div>
-      <Modal className="coord-modal" isOpen={ModalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={{
-    overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)'
-    }}}>
+      <div className="coordnav">
+        <div className="back-button" onClick={() => history.goBack()}></div>
+        <div> {coords.worldname}</div>
+      </div>
+      <Modal
+        className="coord-modal"
+        isOpen={ModalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          },
+        }}
+      >
         <div className="coord-padding">
-        <form onSubmit={(e) => handlesubmit(e)}>
-          <label>Enter Coordinates Name</label>
-          <input
-            type="text"
-            maxLength="25"
-            required
-            value={coordname}
-            onChange={(e) => setcoordname(e.target.value)}
-          />
+          <form onSubmit={(e) => handlesubmit(e)}>
+            <label>Enter Coordinates Name</label>
+            <input
+              type="text"
+              maxLength="25"
+              required
+              value={coordname}
+              onChange={(e) => setcoordname(e.target.value)}
+            />
 
-          <label>X-coordinates</label>
-          <input
-            type="number"
-            required
-            value={x}
-            onChange={(e) => setx(e.target.value)}
-          />
+            <label>X-coordinates</label>
+            <input
+              type="number"
+              required
+              value={x}
+              onChange={(e) => setx(e.target.value)}
+            />
 
-          <label>Y-coordinates</label>
-          <input
-            type="number"
-            required
-            value={y}
-            onChange={(e) => sety(e.target.value)}
-          />
-          <button>Create</button>
-        </form>
+            <label>Y-coordinates</label>
+            <input
+              type="number"
+              required
+              value={y}
+              onChange={(e) => sety(e.target.value)}
+            />
+            <button>Create</button>
+          </form>
         </div>
       </Modal>
       {/*deletecoordparent={deletecoordparent}*/}
-      <div  className="full-coords">
-      <Coordrender
-        coords={coords}
-        id={id}
-        deletecoordparent={deletecoordparent}
-        editcoordparent={editcoordparent}
-      />
+      <div className="full-coords">
+        <Coordrender
+          coords={coords}
+          id={id}
+          deletecoordparent={deletecoordparent}
+          editcoordparent={editcoordparent}
+        />
       </div>
       <div className="coord-button-center">
-      <div className="coord-button-wrapper" onClick={(e) => {setModalIsOpen(true)}}>
-      <div className="coord-add-button" >Add New Coordinates</div>
-      </div>
+        <div
+          className="coord-button-wrapper"
+          onClick={(e) => {
+            setModalIsOpen(true);
+          }}
+        >
+          <div className="coord-add-button">Add New Coordinates</div>
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ export default function Coordender(props) {
   const [y, sety] = useState("");
   const [currentcoordid, setcurrentcoordid] = useState("");
 
-  const url = `${ process.env.REACT_APP_SERVER_URL}/world`
+  const url = `${process.env.REACT_APP_SERVER_URL}/world`;
 
   const deletecoord = (_id, e) => {
     axios.delete(`${url}/deletecoord`, {
@@ -104,34 +104,34 @@ export default function Coordender(props) {
                 },
               }}
             >
-            <div className="coord-padding">
-              <form onSubmit={(e) => handlesubmit(e)}>
-                <label>Enter Coordinates Name</label>
-                <input
-                  type="text"
-                  maxLength="25"
-                  required
-                  value={coordname}
-                  onChange={(e) => setcoordname(e.target.value)}
-                />
+              <div className="coord-padding">
+                <form onSubmit={(e) => handlesubmit(e)}>
+                  <label>Enter Coordinates Name</label>
+                  <input
+                    type="text"
+                    maxLength="25"
+                    required
+                    value={coordname}
+                    onChange={(e) => setcoordname(e.target.value)}
+                  />
 
-                <label>X-Coordinates</label>
-                <input
-                  type="number"
-                  required
-                  value={x}
-                  onChange={(e) => setx(e.target.value)}
-                />
+                  <label>X-Coordinates</label>
+                  <input
+                    type="number"
+                    required
+                    value={x}
+                    onChange={(e) => setx(e.target.value)}
+                  />
 
-                <label>Y-Coordinates</label>
-                <input
-                  type="number"
-                  required
-                  value={y}
-                  onChange={(e) => sety(e.target.value)}
-                />
-                <button>Edit coords</button>
-              </form>
+                  <label>Y-Coordinates</label>
+                  <input
+                    type="number"
+                    required
+                    value={y}
+                    onChange={(e) => sety(e.target.value)}
+                  />
+                  <button>Edit coords</button>
+                </form>
               </div>
             </Modal>
           </div>

@@ -5,7 +5,7 @@
 
   /*border: black 2px solid;
     background: linear-gradient(180deg, #F7E8CB 0%, #BA16F3 145.94%);*/
-  
+
   font-family: "Merriweather", serif;
   font-weight: 900;
 }
@@ -22,7 +22,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #F7E8CB;
+  background: #f7e8cb;
 }
 
 /* Handle */
@@ -32,5 +32,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #BA16F3;
+  background: #ba16f3;
 }

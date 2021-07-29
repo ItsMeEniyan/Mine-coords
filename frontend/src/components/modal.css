@@ -49,8 +49,7 @@
   font-size: 32px;
   text-align: center;
 }
-.world-modal label {
-}
+
 @media only screen and (max-width: 500px) {
   .world-modal {
     width: 86vw;

@@ -11,7 +11,6 @@ import UseSaveQueryParamsToken from "./stores/useSaveQueryParamsToken";
 Modal.setAppElement("#root");
 
 export default function App() {
-
   // function useQuery() {
   //   return new URLSearchParams(useLocation().search);
   // }
@@ -21,26 +20,25 @@ export default function App() {
 
   // localStorage.setItem("jwtTok", jwtTok);
 
-  
   UseSaveQueryParamsToken();
 
   return (
-    <div className="app-body" >
-    <div>
-    <Navbar/>
-    <Router /*history={browserHistory}*/>
+    <div className="app-body">
       <div>
-        <Switch>
-          <Route path="/coords/:id">
-            <Coordlist />
-          </Route>
-          <Route path="/">
-            <Worldlist />
-          </Route>
-        </Switch>
+        <Navbar />
+        <Router /*history={browserHistory}*/>
+          <div>
+            <Switch>
+              <Route path="/coords/:id">
+                <Coordlist />
+              </Route>
+              <Route path="/">
+                <Worldlist />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </div>
-    </Router>
-    </div>
     </div>
   );
 }

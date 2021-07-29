@@ -24,7 +24,9 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: `${process.env.PORT || "http://localhost:9000"}/auth/google/callback`,
+      callbackURL: `${
+        process.env.PORT || "http://localhost:9000"
+      }/auth/google/callback`,
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -36,23 +38,31 @@ passport.use(
       );
     }
   )
-); 
-passport.use(new strategy({
-  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),secretOrKey:process.env.JWT_SECRET
-},
-function(jwt_payload, done) {
-  User.findOne({googleId: jwt_payload.user.googleId}, function(err, user) {
-      if (err) {
-          return done(err, false);
-      }
-      if (user) {
-          return done(null, user);
-      } else {
-          return done(null, false);
-          // or you could create a new account
-      }
-  });
-}));
+);
+passport.use(
+  new strategy(
+    {
+      jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+      secretOrKey: process.env.JWT_SECRET,
+    },
+    function (jwt_payload, done) {
+      User.findOne(
+        { googleId: jwt_payload.user.googleId },
+        function (err, user) {
+          if (err) {
+            return done(err, false);
+          }
+          if (user) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+            // or you could create a new account
+          }
+        }
+      );
+    }
+  )
+);
 
 router.get(
   "/auth/google",

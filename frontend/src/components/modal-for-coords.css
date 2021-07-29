@@ -48,21 +48,21 @@
   text-align: center;
 }
 .coord-modal label {
-    word-break: keep-all;
+  word-break: keep-all;
 }
 
 @media only screen and (max-width: 500px) {
-    .coord-modal {
-        width: 86vw;
-    }
-    .coord-modal button {
-        width: 65vw;
-    }
-    .coord-padding {
-        padding-right: 23px;
-        padding-left: 23px;
-      }
-    .coord-modal input{
-        width: 75vw;
-    }
+  .coord-modal {
+    width: 86vw;
   }
+  .coord-modal button {
+    width: 65vw;
+  }
+  .coord-padding {
+    padding-right: 23px;
+    padding-left: 23px;
+  }
+  .coord-modal input {
+    width: 75vw;
+  }
+}

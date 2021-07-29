@@ -1,55 +1,52 @@
-.world{
-    margin-top: 14px;
-    padding: 25px;
-    background: linear-gradient(180deg, #FFC303 0%, #FFA903 100%);
-border: 4px solid #000000;
-font-size: 24px;
+.world {
+  margin-top: 14px;
+  padding: 25px;
+  background: linear-gradient(180deg, #ffc303 0%, #ffa903 100%);
+  border: 4px solid #000000;
+  font-size: 24px;
 
-font-family: 'Raleway', sans-serif;
-    }
-#world_container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
+  font-family: "Raleway", sans-serif;
+}
+#world_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
 }
 
-.world_name{
-    margin: 0px;
-    max-width: 100%;
-    word-break:break-all;
-    
+.world_name {
+  margin: 0px;
+  max-width: 100%;
+  word-break: break-all;
 }
 .world:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-.entire-section{
-    margin-top: 126px;
+.entire-section {
+  margin-top: 126px;
 }
-.button-set{
-    display: flex;
-    font-family: Merriweather;
-font-style: normal;
-font-weight: bold;
-font-size: 12px;
-line-height: 15px;
-/* identical to box height */
+.button-set {
+  display: flex;
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
 
-
-color: #000000;
-
+  color: #000000;
 }
-.edit-button{
-    width: 65px;
-height: 40px;
-background-image: url("../static/Edit\ button.svg");
-display: flex;
-align-items: center;
-justify-content: center;
-margin-right: 27px;
+.edit-button {
+  width: 65px;
+  height: 40px;
+  background-image: url("../static/Edit\ button.svg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 27px;
 }
-.delete-button{
-    background-image: url("../static/Delete\ button.svg");
-    width: 43px;
-height: 39px;
+.delete-button {
+  background-image: url("../static/Delete\ button.svg");
+  width: 43px;
+  height: 39px;
 }

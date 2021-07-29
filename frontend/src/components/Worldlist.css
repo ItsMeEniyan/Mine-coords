@@ -1,4 +1,4 @@
-.worlds{
+.worlds {
   padding-bottom: 150px;
 }
 .button-center {
@@ -21,7 +21,7 @@
   height: 72px;
 }
 @media only screen and (max-width: 800px) {
-  .button-center{
+  .button-center {
     width: 86vw;
   }
 }

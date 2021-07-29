@@ -1,9 +1,9 @@
 .google-button {
   width: 258px;
-height: 50px;
+  height: 50px;
   border-width: 0;
   background: linear-gradient(135deg, #181818 0%, #000000 100%);
-border-radius: 14px;
+  border-radius: 14px;
   color: #ffffff;
   font-family: Raleway;
   font-style: normal;
@@ -13,15 +13,23 @@ border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  transition: transform .2s;
+
+  transition: transform 0.2s;
 }
-.google-logo{
-  margin-top:5px;
+.google-logo {
+  margin-top: 5px;
   margin-right: 12px;
 }
-.google-button:hover, .google-button:focus{
-  transform: scale(1.02); 
+.google-button:hover,
+.google-button:focus {
+  transform: scale(1.02);
   outline: none;
   cursor: pointer;
+}
+@media only screen and (max-width: 800px) {
+  .google-button {
+    width: 230px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
 }

@@ -1,6 +1,6 @@
-body{
-    margin: 0px;
-    background-image: url("./static/bgframe\ v2.svg"),
+body {
+  margin: 0px;
+  background-image: url("./static/bgframe\ v2.svg"),
     linear-gradient(180deg, #f7e8cb 0%, #ba16f3 145.94%);
 
   background-attachment: fixed;
