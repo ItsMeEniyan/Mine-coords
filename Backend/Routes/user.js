@@ -25,7 +25,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: `${
-        process.env.PORT || "http://localhost:9000"
+        "https://mine-coords.herokuapp.com" || "http://localhost:9000"
       }/auth/google/callback`,
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
